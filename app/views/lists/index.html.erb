@@ -1,0 +1,13 @@
+<h1>All lists</h1>
+
+<ul>
+    <% @lists.each do |list| %>
+      <li>
+        <%= link_to list.name, list_path(list) %>
+      </li>
+    <% end %>
+
+   <%= link_to new_list_path do %>
+    <i class="fa-solid fa-plus"></i> Add a new list
+  <% end %>
+</ul>
