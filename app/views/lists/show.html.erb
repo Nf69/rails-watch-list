@@ -1,19 +1,22 @@
-<h1><%= @list.name %></h1>
 
-<%# <h2><%= movie.id.title %>
-<ul>
-    <% @list.bookmarks.each do |bm| %>
-      <li>
-      <div><%= image_tag bm.movie.poster_url, alt: bm.movie.title, width: 400 %></div>
-      <div><%= bm.movie.title  %></div>
-      <div><%= bm.comment  %></div>
-      <div><%= link_to "Delete Bookmark", bookmark_path(bm), data: { "turbo-method": :delete }  %></div>
-      </li>
-    <% end %>
-</ul>
+<div class="card-category card-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
+  <h1><%= @list.name %></h1>
+</div>
+  <ul>
+    <div class="card-category">
+      <% @list.bookmarks.each do |bm| %>
+        <li>
+        <div><%= image_tag bm.movie.poster_url, alt: bm.movie.title, width: 400 %></div>
+        <div><%= bm.movie.title  %></div>
+        <div><%= bm.comment  %></div>
+        <div><%= link_to "Delete Bookmark", bookmark_path(bm), data: { "turbo-method": :delete }  %></div>
+        </li>
+      <% end %>
+    </div>
+  </ul>
+  <div class="btn-flat">
+  <%= link_to "Add a new movie", new_list_bookmark_path(@list.id) %>
+  </div>
+  <%= link_to "Back to the homepage", ("/lists") %>
 
-<%= link_to "Add a new movie", new_list_bookmark_path(@list.id) %>
-
-<%= link_to "Back to the homepage", ("/lists") %>
-
-<%= link_to "Delete list", list_path(@list), data: { "turbo-method": :delete }  %>
+  <%= link_to "Delete list", list_path(@list), data: { "turbo-method": :delete }  %>
